@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>date/secs calculator</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="script.js"></script>
+</head>
+
+<body onload="loaded();">
+
+<div class="center">
+<h2>Date to seconds calculator</h2>
+<div class="box">
+<table>
+  <tr>
+    <th>Date 1</th>
+    <th>difference</th>
+    <th>Date 2</th>
+  </tr>
+  <tr>
+    <td><input id="date1_input" type="datetime-local" step="1" value="1993-02-24T13:30:00" onchange="date1Change()"></td>
+    <td><input id="diff_input"  type="text" style="text-align:right;" value=1000000000 onchange="diffChange()"></td>
+    <td><input id="date2_input" type="datetime-local" step="1" value="2024-11-02T15:16:40" onchange="date2Change()"></td>
+  </tr>
+  <tr>
+    <td><button id="btnd1" onclick="date1Calc()">&#8635;</button></td>
+    <td><button id="btndiff" onclick="diffCalc()">&#8635;</button></td>
+    <td><button id="btnd2" onclick="date2Calc()">&#8635;</button></td>
+  </tr>
+  <tr id="eq">
+    <td><p id="my_date1" class="date">date</p></td>
+    <td>
+      <div class="inbl">+ &nbsp;</div>
+      <div id="diff_seconds" class="inbl">1000000000</div>
+      <div class="inbl">&nbsp;s&nbsp;&nbsp;</div>
+      <div id="consistent" class="inbl">=</div>
+    </td>
+    <td><p id="my_date2" class="date">date</p></td>
+  </tr>
+  <tr>
+    <td>
+     <div id="pre1"></div>
+     <input type="text" id="live_seconds1" style="text-align:right;">
+     <div id="post1"></div>
+    </td>
+    <td></td>
+    <td>
+     <div id="pre2"></div>
+     <input type="text" id="live_seconds2" style="text-align:right;">
+     <div id="post2"></div>
+    </td>
+  </tr>
+</table>
+</div>
+
+<p>Internally, computers store dates as numbers. Various systems rely on different implementations.
+	In javascript (implemented across web browsers) the date is stored as a number of <em>miliseconds</em> since midnight January 1, 1970 UTC.
+	The conversion is very simple. The date is obtained through a constructor: <code>date = new Date(miliseconds);</code>
+	while the number is obtaned by: <code>miliseconds = Date.parse(date);</code> without the need for the
+	<code>1 year = 365 * 24 * 60 * 60 * 1000 miliseconds</code> artihmetics and leap year considerations.
+	This can be exploited if you want to know e.g. how many seconds old you are! Just compare the given date with <em>now</em>.</p>
+<p>How to use the calculator: you may set any date (Date 1, Date 2) or time difference in seconds you like.
+	Obviously, by changing one of the three values, the equality is no longer satisfied.
+	Then you may click the &#8635; button to recalculate the corresponding value so that the equality holds, keeping the other two given parameter values.</p>
+<p>Always think twice before entering your personal data.
+	This site doesn't collect any data at all (you can trust me or inspect the source code), but there are lots of "fun" webapps out there that do.</p>
+</div>
+
+
+</body>
+</html>
+

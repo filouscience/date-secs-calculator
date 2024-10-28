@@ -1,0 +1,30 @@
+code {
+  background-color: #eeeeee;
+}
+p {
+  text-align: left;
+}
+.center {
+  margin: auto;
+  margin-top: 30px;
+  width: 900px;
+  max-width: 99%;
+  /*border: 1px solid #888888;*/
+  padding: 20px;
+}
+.box {
+  border: 3px solid #dd9900;
+  text-align: center;
+}
+.inbl {
+  display:inline-block;
+}
+.date{
+  text-align: center;
+}
+:root {
+  --eqbg: #eeffee; /* switch to #ffeeee with js */
+}
+#eq {
+  background-color: var(--eqbg);
+}
